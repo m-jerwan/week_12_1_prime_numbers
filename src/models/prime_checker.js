@@ -7,10 +7,15 @@ const PrimeChecker = function(){
 
 PrimeChecker.prototype.bindEvents = function(event){
     PubSub.subscribe('FormView:text-submitted', (event) =>{
+        result = "";
         const inputtedNumber = event.detail;
-        const isInputtedNumberPrime = this.numberIsPrime(inputtedNumber);
-        const msg_constructor = new MsgConstructor();
-        const result = msg_constructor.constructMsg(isInputtedNumberPrime, inputtedNumber);
+        if( inputtedNumber === ""){
+            result = "Please provide a number";
+        } else {
+            const isInputtedNumberPrime = this.numberIsPrime(inputtedNumber);
+            const msg_constructor = new MsgConstructor();
+            result = msg_constructor.constructMsg(isInputtedNumberPrime, inputtedNumber);
+        }
         PubSub.publish('PrimeChecker:result-calculated', result);
     })
 }
