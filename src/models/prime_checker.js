@@ -15,10 +15,6 @@ PrimeChecker.prototype.bindEvents = function(event){
     })
 }
 
-
-
-
-
 //functions checks if given number is prime and returns boolean
 PrimeChecker.prototype.numberIsPrime = function (number) {
     if (number <= 1) {
