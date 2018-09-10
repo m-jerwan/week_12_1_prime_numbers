@@ -1,5 +1,5 @@
 const FormView = require('./views/form_view');
-
+const PrimeChecker = require('./models/prime_checker');
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const formView = new FormView();
 formView.bindEvents();
 
-
+const primeChecker = new PrimeChecker();
+primeChecker.bindEvents();
 
 });
